@@ -16,7 +16,9 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: Unzip project
-        run: unzip -q "vika-yarik-capacitor (1).zip"
+        run: |
+          for z in ./*.zip; do unzip -q -o "$z"; done
+          ls
       - name: Prepare Android project
         working-directory: vika-yarik
         run: |
